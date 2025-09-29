@@ -22,14 +22,14 @@ export default function Footer() {
             </div>
 
             {/* Email Subscription */}
-            <div className="space-y-4">
+            <div className="w-full space-y-4">
               <h3 className="text-lg font-semibold">Email</h3>
               <div className="relative">
                 {/* Input field */}
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="w-130 rounded-full border border-gray-300 bg-white px-4 py-4 pr-20 text-sm text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-300"
+                  className="w-full md:w-130 rounded-full border border-gray-300 bg-white px-4 py-4 pr-20 text-sm text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-300"
                   required
                 />
 
