@@ -1,34 +1,35 @@
+import GetStartedButton from "@/components/reusable/GetStartedButton";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Quote } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
-    text: "Escrow has been excellent through a difficult payment situation. A perfect team. Great team, professional, courteous and always ready to help when needed.",
+    text: "Access the same project through five different dynamic views: a kanban board, Gantt chart, spreadsheet, calendar or simple task list.",
     name: "Guy Hawkins",
     role: "Manager",
     avatar: "/professional-man-avatar.png",
   },
   {
-    text: "Escrow has made payment through their different payment options. A perfect team. Great team, professional, courteous and always ready to help when needed.",
+    text: "Access the same project through five different dynamic views: a kanban board, Gantt chart, spreadsheet, calendar or simple task list.",
     name: "Guy Hawkins",
     role: "Manager",
     avatar: "/business-woman-avatar.png",
   },
   {
-    text: "Escrow has been excellent through the different payment options. A perfect team. Great team, professional, courteous and always ready to help when needed.",
+    text: "Access the same project through five different dynamic views: a kanban board, Gantt chart, spreadsheet, calendar or simple task list.",
     name: "Guy Hawkins",
     role: "Manager",
     avatar: "/professional-avatar.png",
   },
   {
-    text: "Escrow has been excellent through a difficult payment situation. A perfect team. Great team, professional, courteous and always ready to help when needed.",
+    text: "Access the same project through five different dynamic views: a kanban board, Gantt chart, spreadsheet, calendar or simple task list.",
     name: "Guy Hawkins",
     role: "Manager",
     avatar: "/business-executive-avatar.png",
   },
   {
-    text: "Escrow has made payment through their different payment options. A perfect team. Great team, professional, courteous and always ready to help when needed.",
+    text: "Access the same project through five different dynamic views: a kanban board, Gantt chart, spreadsheet, calendar or simple task list.",
     name: "Guy Hawkins",
     role: "Manager",
     avatar: "/team-leader-avatar.jpg",
@@ -37,14 +38,17 @@ const testimonials = [
 
 export default function ClientsReview() {
   return (
-    <section className="bg-white px-4 py-16">
+    <section className="bg-[#F8F9FA] px-12 md:px-4 py-16">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-12 text-center">
-          <div className="mb-4 inline-block rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-600">
-            Our Testimonials
+        <div className="mb-12 text-center md:mb-16">
+          <div className="mb-4 flex items-center justify-center gap-2">
+            <div className="h-0.5 w-12 bg-gray-900"></div>
+            <span className="text-sm font-medium tracking-wide text-black uppercase">
+              Our Testimonial
+            </span>
           </div>
-          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
+          <h2 className="mb-4 text-3xl font-bold text-blue-500 md:text-4xl lg:text-5xl">
             What Our Clients Says
           </h2>
         </div>
@@ -58,19 +62,22 @@ export default function ClientsReview() {
             >
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <Quote className="mt-1 h-8 w-8 flex-shrink-0 text-blue-500" />
                   <div className="flex-1">
                     <p className="mb-4 leading-relaxed text-gray-700">{testimonial.text}</p>
                     <div className="flex items-center gap-3">
-                      <img
-                        src={testimonial.avatar || "/placeholder.svg"}
+                      <Image
+                        width={48}
+                        height={48}
+                        src="/images/landingPage/Testimonials/client.png"
                         alt={testimonial.name}
                         className="h-12 w-12 rounded-full object-cover"
                       />
+
                       <div>
                         <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
                         <p className="text-sm text-gray-600">{testimonial.role}</p>
                       </div>
+                      <Quote className="mt-1 ml-auto h-8 w-8 flex-shrink-0 text-blue-500" />
                     </div>
                   </div>
                 </div>
@@ -81,9 +88,14 @@ export default function ClientsReview() {
 
         {/* View All Button */}
         <div className="text-center">
-          <Button className="rounded-full bg-blue-500 px-8 py-3 text-white hover:bg-blue-600">
-            View All
-          </Button>
+          <GetStartedButton
+            text="See More"
+            href="#"
+            showArrow={true}
+            borderClass="border-[#0051C3]"
+            bgClass="bg-[#2F80ED] hover:bg-[#245cc1]"
+            className="text-sm sm:text-base"
+          />
         </div>
       </div>
     </section>

@@ -4,7 +4,7 @@ const cn = (...classes: Array<string | false | null | undefined>) =>
   classes.filter(Boolean).join(" ");
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "primary" | "secondary" | "ghost" | "offer";
   size?: "sm" | "md" | "lg";
 };
 
@@ -15,6 +15,7 @@ const variants: Record<NonNullable<ButtonProps["variant"]>, string> = {
   primary: "bg-foreground text-background hover:opacity-90",
   secondary: "bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20",
   ghost: "bg-transparent hover:bg-black/5 dark:hover:bg-white/10",
+  offer: "bg-[#2d6ef0] hover:bg-[#245cc1] text-white",
 };
 
 const sizes: Record<NonNullable<ButtonProps["size"]>, string> = {

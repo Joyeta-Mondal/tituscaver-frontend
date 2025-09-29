@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import GetStartedButton from "@/components/reusable/GetStartedButton";
 import {
   Card,
   CardContent,
@@ -8,15 +8,17 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Check } from "lucide-react";
+import Image from "next/image";
 
 const plans = [
   {
     name: "Basic Plan",
-    price: "$19",
+    price: "$0",
     period: "/month",
     description: "For small businesses and organizations",
     features: ["Basic transactions", "Phone and email support", "Basic analytics"],
     popular: false,
+    image: "/images/landingPage/ChooseOffer/basic.png",
   },
   {
     name: "Premium Plan",
@@ -24,7 +26,8 @@ const plans = [
     period: "/month",
     description: "The most popular option for growing businesses",
     features: ["General tracking", "Basic insurance", "Priority support"],
-    popular: true,
+    popular: false,
+    image: "/images/landingPage/ChooseOffer/premium.png",
   },
   {
     name: "Enterprise Plan",
@@ -33,19 +36,23 @@ const plans = [
     description: "For large scale operations and advanced functionality",
     features: ["Advanced reporting", "Full integration", "Dedicated support"],
     popular: false,
+    image: "/images/landingPage/ChooseOffer/enterprise.png",
   },
 ];
 
-export default function PricingSection() {
+export default function ChooseOffer() {
   return (
-    <section className="bg-gradient-to-b from-blue-50 to-white px-4 py-16">
+    <section className="bg-white px-4 py-16">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-12 text-center">
-          <div className="mb-4 inline-block rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-600">
-            Pricing Table
+        <div className="mb-12 text-center md:mb-16">
+          <div className="mb-4 flex items-center justify-center gap-2">
+            <div className="h-0.5 w-12 bg-gray-900"></div>
+            <span className="text-sm font-medium tracking-wide text-black uppercase">
+              Pricing Table
+            </span>
           </div>
-          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
+          <h2 className="mb-4 text-3xl font-bold text-blue-500 md:text-4xl lg:text-5xl">
             Choose your Best Offer
           </h2>
         </div>
@@ -55,37 +62,38 @@ export default function PricingSection() {
           {plans.map((plan, index) => (
             <Card
               key={index}
-              className={`relative transition-all duration-300 hover:shadow-xl ${
+              className={`relative shadow-lg transition-all duration-300 hover:shadow-xl ${
                 plan.popular
                   ? "scale-105 border-blue-500 shadow-lg"
                   : "border-gray-200 hover:border-blue-300"
               }`}
             >
-              {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 transform">
-                  <span className="rounded-full bg-blue-500 px-4 py-1 text-sm font-medium text-white">
-                    Most Popular
-                  </span>
-                </div>
-              )}
-
               <CardHeader className="pb-4 text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-blue-600">
-                  <div className="h-8 w-8 rounded bg-white/20 backdrop-blur-sm"></div>
+                <Image
+                  src={plan.image}
+                  alt="basic plan"
+                  className="h-full w-full object-cover md:h-full md:w-full"
+                  width={400}
+                  height={400}
+                />
+
+                <CardTitle className="text-2xl font-bold text-gray-900">{plan.name}</CardTitle>
+                <div className="mb-1">
+                  <span className="text-3xl font-bold text-blue-900">{plan.price}</span>
+                  <span className="ml-1 text-gray-600">{plan.period}</span>
                 </div>
-                <CardTitle className="text-xl font-bold text-gray-900">{plan.name}</CardTitle>
-                <CardDescription className="mt-2 text-gray-600">{plan.description}</CardDescription>
+                <CardDescription className="text-md mx-auto mt-2 mb-4 w-2/3">
+                  {plan.description}
+                </CardDescription>
               </CardHeader>
 
               <CardContent className="pb-6 text-center">
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
-                  <span className="ml-1 text-gray-600">{plan.period}</span>
-                </div>
-
                 <ul className="space-y-3 text-left">
                   {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center gap-3">
+                    <li
+                      key={featureIndex}
+                      className="mx-auto mt-2 mb-4 flex w-2/3 items-center gap-3"
+                    >
                       <Check className="h-5 w-5 flex-shrink-0 text-blue-500" />
                       <span className="text-gray-700">{feature}</span>
                     </li>
@@ -93,16 +101,15 @@ export default function PricingSection() {
                 </ul>
               </CardContent>
 
-              <CardFooter>
-                <Button
-                  className={`w-full ${
-                    plan.popular
-                      ? "bg-blue-500 text-white hover:bg-blue-600"
-                      : "border-2 border-blue-500 bg-white text-blue-500 hover:bg-blue-50"
-                  }`}
-                >
-                  Get Started
-                </Button>
+              <CardFooter className="flex justify-center">
+                <GetStartedButton
+                  text="Get Started"
+                  href="#"
+                  showArrow={true}
+                  borderClass="border-[#0051C3]"
+                  bgClass="bg-[#2F80ED] hover:bg-[#245cc1]"
+                  className="text-sm sm:text-base"
+                />
               </CardFooter>
             </Card>
           ))}

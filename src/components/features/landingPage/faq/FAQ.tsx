@@ -39,7 +39,7 @@ export default function FAQ() {
       <div className=""></div>
       <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-4">
         {/* FAQ Content */}
-        <div className="mx-auto mb-8 max-w-7xl px-4 py-12 sm:px-6 md:py-20 lg:px-8">
+        <div className="mx-auto mb-8 max-w-7xl px-4 py-12 sm:px-6 md:py-20 lg:px-24">
           {/* Header */}
           <div className="mb-8">
             <div className="mb-4 flex items-center gap-2">
