@@ -1,6 +1,6 @@
 import { Badge, Progress } from "@/components/ui";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 
 export default function Dashboard() {
@@ -17,14 +17,14 @@ export default function Dashboard() {
       status: "In Transit",
       progress: 75,
       deliveryDate: "Today, 2:30 PM",
-      mapImage: "/images/landingPage/Dashboard/firstMap.png",
+      mapImage: "/images/UserDashboard/firstMap.png",
     },
     {
       id: "#483239",
       status: "In Transit",
       progress: 45,
       deliveryDate: "Today, 4:15 PM",
-      mapImage: "/images/landingPage/Dashboard/firstMap.png",
+      mapImage: "/images/UserDashboard/firstMap.png",
     },
   ];
 
@@ -87,7 +87,7 @@ export default function Dashboard() {
                       <span>Progress</span>
                       <span>{order.progress}%</span>
                     </div>
-                    <Progress value={order.progress} className="h-2" />
+                    <Progress value={order.progress} showSegments className="h-2" />
                   </div>
 
                   {/* Map and Actions */}
@@ -101,17 +101,21 @@ export default function Dashboard() {
                         className="h-48 w-full rounded-lg border object-cover md:h-56"
                       />
                     </div>
-
-                    <div className="flex flex-row gap-2 lg:w-48 lg:flex-col">
-                      <Button variant="outline" className="flex-1 rounded-full">
-                        Contact Driver
-                      </Button>
-                      <Button className="flex-1 rounded-full bg-blue-700 text-white">
-                        Track Order
-                      </Button>
-                    </div>
                   </div>
                 </CardContent>
+                <CardFooter className="flex flex-col items-start justify-between gap-4 p-6 pt-0 sm:flex-row sm:items-center">
+                  <div className="text-sm text-gray-600">
+                    Estimated Delivery Date: {order.deliveryDate}
+                  </div>
+                  <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
+                    <Button variant="outline" className="rounded-full">
+                      Contact Driver
+                    </Button>
+                    <button className="rounded-md bg-blue-700 p-2 px-4 text-white hover:bg-blue-800">
+                      Track Order
+                    </button>
+                  </div>
+                </CardFooter>
               </Card>
             ))}
           </div>
