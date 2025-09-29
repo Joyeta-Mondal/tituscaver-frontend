@@ -1,8 +1,5 @@
-import React from 'react'
+import BlogSection from "../blogSection/BlogSection";
 
 export default function Latest() {
-  return (
-    <div>Latest</div>
-  )
+  return <BlogSection />;
 }
-
