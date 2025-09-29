@@ -80,7 +80,7 @@ export default function AboutUs() {
             </div>
 
             {/* Main Heading */}
-            <h1 className="py-2 text-4xl leading-tight font-bold text-gray-900">
+            <h1 className="py-2  text-4xl leading-tight font-bold text-gray-900">
               About TrustDeliver
             </h1>
 

@@ -16,12 +16,12 @@ export default function Home() {
       <main className="">
         <Banner />
         <AboutUs />
-        <CustomerSupport />
+        <CustomerSupport pageType="landing" />
         <WhatWeDo />
         <HowItWorks />
         <FAQ />
         <ChooseOffer />
-        <ClientsReview />
+        <ClientsReview pageType="landing" />
         <Transactions />
         <Contact />
         <Latest />

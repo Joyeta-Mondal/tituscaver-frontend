@@ -3,6 +3,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Quote } from "lucide-react";
 import Image from "next/image";
 
+interface ClientsReviewProps {
+  pageType?: "landing" | "about";
+}
+
 const testimonials = [
   {
     text: "Access the same project through five different dynamic views: a kanban board, Gantt chart, spreadsheet, calendar or simple task list.",
@@ -36,9 +40,19 @@ const testimonials = [
   },
 ];
 
-export default function ClientsReview() {
+export default function ClientsReview({ pageType = "landing" }: ClientsReviewProps) {
+  // Determine number of testimonials to show based on page type
+  const testimonialsToShow =
+    pageType === "about"
+      ? testimonials.slice(0, 3) // Show 3 for about page
+      : testimonials; // Show all 5 for landing page
+
+  // Calculate grid columns based on number of testimonials
+  const gridColsClass =
+    pageType === "about" ? "md:grid-cols-1 lg:grid-cols-3" : "md:grid-cols-2 lg:grid-cols-3";
+
   return (
-    <section className="bg-[#F8F9FA] px-12 md:px-4 py-16">
+    <section className="bg-[#F8F9FA] px-12 py-16 md:px-4">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-12 text-center md:mb-16">
@@ -54,8 +68,8 @@ export default function ClientsReview() {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((testimonial, index) => (
+        <div className={`mb-12 grid grid-cols-1 gap-6 ${gridColsClass}`}>
+          {testimonialsToShow.map((testimonial, index) => (
             <Card
               key={index}
               className="border-gray-200 transition-shadow duration-300 hover:shadow-lg"

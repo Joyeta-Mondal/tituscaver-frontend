@@ -2,7 +2,11 @@
 
 import Image from "next/image";
 
-export default function CustomerSupport() {
+interface CustomerSupportProps {
+  pageType?: "landing" | "about";
+}
+
+export default function CustomerSupport({ pageType = "landing" }: CustomerSupportProps) {
   return (
     <section className="relative h-full min-h-[400px] w-full sm:min-h-[500px] md:min-h-[600px] lg:h-[762px]">
       {/* Background Image */}
