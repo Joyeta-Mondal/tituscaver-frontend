@@ -102,7 +102,7 @@ export default function WhatWeDo() {
                 </p>
                 <GetStartedButton
                   text="Learn More"
-                  href="#"
+                  href="/servicesLanding/details"
                   showArrow={true}
                   borderClass="border-[#0051C3]"
                   bgClass="bg-[#2F80ED] hover:bg-[#245cc1]"
