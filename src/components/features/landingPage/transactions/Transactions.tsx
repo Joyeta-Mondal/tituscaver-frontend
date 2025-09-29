@@ -1,4 +1,4 @@
-import HeroButton from "@/components/reusable/HeroButton";
+import GetStartedButton from "@/components/reusable/GetStartedButton";
 import Image from "next/image";
 
 export default function Transactions() {
@@ -27,7 +27,8 @@ export default function Transactions() {
           transaction processing.
         </p>
 
-        <HeroButton
+        {/* Using GetStartedButton with custom styling */}
+        <GetStartedButton
           href="/signup"
           showArrow={true}
           bgClass="bg-[#2d6ef0] hover:bg-[#245cc1] focus:bg-[#245cc1]"

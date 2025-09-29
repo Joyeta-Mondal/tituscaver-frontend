@@ -36,7 +36,7 @@ export default function Footer() {
                 {/* Button inside input */}
                 <button
                   type="submit"
-                  className="absolute top-1/2 right-7 md:right-47 lg:right-44 -translate-y-1/2 cursor-pointer rounded-full bg-[#2d6ef0] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[#245cc1]"
+                  className="absolute top-1/2 right-7 -translate-y-1/2 cursor-pointer rounded-full bg-[#2d6ef0] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[#245cc1] md:right-47 lg:right-44"
                 >
                   Subscribe
                 </button>
@@ -88,7 +88,7 @@ export default function Footer() {
             {/* Description */}
             <p className="text-lg leading-relaxed text-gray-400">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-              has been the industry's standard dummy text ever since the 1500s,
+              has been the industryA&pos;s standard dummy text ever since the 1500s,
             </p>
 
             {/* Links Grid */}

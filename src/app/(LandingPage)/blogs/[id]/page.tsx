@@ -14,13 +14,22 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function BlogDetailPage({ params }: { params: { id: string } }) {
-  const postId = Number.parseInt(params.id);
+// Correct typing for Next.js 15 with async params
+interface BlogPostPageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default async function BlogDetailPage({ params }: BlogPostPageProps) {
+  const resolvedParams = await params;
+  const postId = Number.parseInt(resolvedParams.id);
   const post = blogPosts.find((p) => p.id === postId);
 
   if (!post) {
     notFound();
   }
+
+  // Adding a default comments count since it's not in the BlogPost interface
+  const commentsCount = 0;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -78,7 +87,7 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
                     </div>
                     <div>
                       <span className="block text-xs font-medium text-gray-400">Comments</span>
-                      <span className="block font-medium">{post.comments} comments</span>
+                      <span className="block font-medium">{commentsCount} comments</span>
                     </div>
                   </div>
                 </div>
