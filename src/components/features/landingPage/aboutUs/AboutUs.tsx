@@ -98,7 +98,7 @@ export default function AboutUs() {
                 At TrustDeliver, we believe that online marketplace transactions should be secure,
                 transparent, and worry-free. Our platform acts as a trusted intermediary, holding
                 funds in escrow until delivery is complete, while providing real-time tracking and
-                professional dispute resolution. We're bridging the gap between buyers and sellers
+                professional dispute resolution. We&apos;re bridging the gap between buyers and sellers
                 with technology that builds trust and ensures peace of mind for everyone involved.
               </p>
             </div>

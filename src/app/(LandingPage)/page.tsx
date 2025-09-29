@@ -1,4 +1,5 @@
 import AboutUs from "@/components/features/landingPage/aboutUs/AboutUs";
+import Banner from "@/components/features/landingPage/banner/Banner";
 import ChooseOffer from "@/components/features/landingPage/chooseOffer/ChooseOffer";
 import ClientsReview from "@/components/features/landingPage/clientsReview/ClientsReview";
 import Contact from "@/components/features/landingPage/contact/Contact";
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <div className="">
       <main className="">
+        <Banner />
         <AboutUs />
         <CustomerSupport />
         <WhatWeDo />
