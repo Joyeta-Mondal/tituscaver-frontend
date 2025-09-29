@@ -1,3 +1,4 @@
+import { blogPosts, services, sidebarNews, tags } from "@/app/data/blogPosts";
 import GetStartedButton from "@/components/reusable/GetStartedButton";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -5,68 +6,6 @@ import { Input } from "@/components/ui/input";
 import { ArrowRight, Calendar, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
-const featuredPosts = [
-  {
-    id: 1,
-    title: "How Escrow Protects Both Buyers and Sellers",
-    excerpt:
-      "Learn how escrow services create a secure environment for online transactions, protecting both parties from fraud and disputes.",
-    date: "September 26, 2025",
-    image: "/images/landingPage/BlogSection/escrow.png",
-    category: "Security",
-  },
-  {
-    id: 2,
-    title: "The Power of Real-Time Delivery Tracking",
-    excerpt:
-      "Discover how advanced tracking systems improve customer satisfaction and build trust in your delivery process.",
-    date: "September 26, 2025",
-    image: "/images/landingPage/BlogSection/laptop.png",
-    category: "Technology",
-  },
-  {
-    id: 3,
-    title: "Building a Trust-Based Marketplace: A Deeper Look",
-    excerpt:
-      "Essential strategies for creating and growing a trustworthy online marketplace that customers can rely on.",
-    date: "September 26, 2025",
-    image: "/images/landingPage/BlogSection/delivery.png",
-    category: "Business",
-  },
-];
-
-const sidebarNews = [
-  {
-    id: 1,
-    title: "How Escrow Protects Both Buyers and Sellers",
-    date: "July 15, 2024",
-    image: "/images/landingPage/BlogSection/escrow.png",
-  },
-  {
-    id: 2,
-    title: "The Power of Real-Time Delivery Tracking",
-    date: "July 15, 2024",
-    image: "/images/landingPage/BlogSection/escrow.png",
-  },
-  {
-    id: 3,
-    title: "Building a Trust-Based Marketplace: A Deeper Look",
-    date: "June 15, 2024",
-    image: "/images/landingPage/BlogSection/escrow.png",
-  },
-];
-
-const services = [
-  "Online Escrow Services",
-  "Fast - Easy Payment Tracking",
-  "Professional Dispute Resolution",
-  "Marketplace Integration",
-  "Professional Online Network",
-  "24/7 Customer Support",
-];
-
-const tags = ["Business", "Business", "Business", "Business", "Business", "Business", "Business"];
 
 export default function BlogPageSection() {
   return (
@@ -77,7 +16,7 @@ export default function BlogPageSection() {
           <div className="lg:col-span-2">
             {/* Featured Blog Posts */}
             <div className="space-y-6">
-              {featuredPosts.map((post) => (
+              {blogPosts.map((post) => (
                 <Card key={post.id} className="overflow-hidden">
                   <div className="relative">
                     <Image
@@ -97,13 +36,15 @@ export default function BlogPageSection() {
                       </div>
                     </div>
                     <h2 className="mb-4 text-lg font-bold text-balance text-gray-900 sm:text-xl">
-                      {post.title}
+                      <Link href={`/blogs/${post.id}`} className="hover:no-underline">
+                        {post.title}
+                      </Link>
                     </h2>
-                    <p className="mb-6 leading-relaxed text-gray-600">{post.excerpt}</p>
+                    <p className="mb-6 leading-relaxed text-gray-600">{post.description}</p>
 
                     <GetStartedButton
                       text="Read More"
-                      href="#"
+                      href={`/blogs/${post.id}`}
                       showArrow={true}
                       borderClass="border-[#0051C3]"
                       bgClass="bg-[#2F80ED] hover:bg-[#245cc1]"
@@ -174,9 +115,7 @@ export default function BlogPageSection() {
                     />
                     <div className="flex-1">
                       <h4 className="cursor-pointer text-sm leading-tight font-medium text-balance transition-colors hover:text-blue-600">
-                        <Link href={`/blogs/${item.id}`}>
-                          {item.title}
-                        </Link>
+                        <Link href={`/blogs/${item.id}`}>{item.title}</Link>
                       </h4>
                       <span className="text-xs text-gray-500">{item.date}</span>
                     </div>
@@ -209,7 +148,7 @@ export default function BlogPageSection() {
             <button className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-600 p-4 text-lg text-white shadow-lg sm:p-6 md:p-6 lg:p-8">
               1
             </button>
-            <button className="flex h-16 w-16 items-center justify-center rounded-full bg-white p-1 p-4 text-lg text-black  shadow-lg">
+            <button className="flex h-16 w-16 items-center justify-center rounded-full bg-white p-1 p-4 text-lg text-black shadow-lg">
               2
             </button>
             <button className="bg-bg-white flex h-16 w-16 items-center justify-center rounded-full p-1 text-lg font-bold text-black shadow-lg">

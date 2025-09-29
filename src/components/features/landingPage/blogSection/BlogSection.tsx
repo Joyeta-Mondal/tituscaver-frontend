@@ -1,6 +1,7 @@
 import GetStartedButton from "@/components/reusable/GetStartedButton";
 import { Calendar } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const blogPosts = [
   {
@@ -80,7 +81,9 @@ export default function BlogSection() {
 
                     {/* Title */}
                     <h3 className="mb-2 text-lg leading-tight font-bold text-gray-900 transition-colors duration-200 group-hover:text-blue-600 sm:text-xl">
-                      {post.title}
+                      <Link href={`/blogs/${post.id}`} className="hover:no-underline">
+                        {post.title}
+                      </Link>
                     </h3>
 
                     {/* Excerpt */}
@@ -90,7 +93,7 @@ export default function BlogSection() {
 
                     <GetStartedButton
                       text="Read More"
-                      href="#"
+                      href={`/blogs/${post.id}`}
                       showArrow={true}
                       borderClass="border-[#0051C3]"
                       bgClass="bg-[#2F80ED] hover:bg-[#245cc1]"
@@ -125,7 +128,9 @@ export default function BlogSection() {
 
                 {/* Title */}
                 <h3 className="mb-4 text-2xl leading-tight font-bold text-balance text-gray-900 transition-colors duration-200 group-hover:text-blue-600 sm:text-3xl lg:text-2xl">
-                  {blogPosts[2].title}
+                  <Link href={`/blogs/${blogPosts[2].id}`} className="hover:no-underline">
+                    {blogPosts[2].title}
+                  </Link>
                 </h3>
 
                 {/* Excerpt */}
@@ -135,7 +140,7 @@ export default function BlogSection() {
 
                 <GetStartedButton
                   text="Read More"
-                  href="#"
+                  href={`/blogs/${blogPosts[2].id}`}
                   showArrow={true}
                   borderClass="border-[#0051C3]"
                   bgClass="bg-[#2F80ED] hover:bg-[#245cc1]"
@@ -150,7 +155,7 @@ export default function BlogSection() {
         <div className="text-center">
           <GetStartedButton
             text="Read More"
-            href="#"
+            href="/blogs"
             showArrow={true}
             borderClass="border-[#0051C3]"
             bgClass="bg-[#2F80ED] hover:bg-[#245cc1]"
