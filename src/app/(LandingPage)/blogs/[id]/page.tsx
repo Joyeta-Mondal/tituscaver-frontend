@@ -14,7 +14,6 @@ export async function generateStaticParams() {
   }));
 }
 
-// Correct typing for Next.js 15 with async params
 interface BlogPostPageProps {
   params: Promise<{ id: string }>;
 }
