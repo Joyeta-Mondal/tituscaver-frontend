@@ -15,7 +15,7 @@ export default function AboutBanner() {
         className="absolute inset-0 h-full w-full object-cover"
       />
 
-      {/* Overlay for better text readability */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/80 to-black/65"></div>
 
       {/* Banner content */}
